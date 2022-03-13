@@ -60,6 +60,9 @@ exit;
  
 **Then, I need to make changes at /var/www/html/firefly-iii/.env**
 ```
+APP_DEBUG=true        # It'll be used for CloudWatch logs
+APP_LOG_LEVEL=debug   # It'll be used for CloudWatch logs
+
 DB_CONNECTION=mysql
 DB_HOST={{RDS_ENDPOINT}}
 DB_PORT=3306
