@@ -100,7 +100,7 @@ AWS SSO supports automatic user provisioning via the System for Cross-Identity M
 
 + Create IAM role with **CloudWatchAgentPolicy**
 + Download CloudWatch Agent on EC2 instance and install it - [deb package](https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb)
-+ Define your configuration file for CloudWatch and place it on the path: */opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json
++ Define your configuration file for CloudWatch and place it on the path: */opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json*
 + Activate CloudWatch agent: 
 ```
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json
