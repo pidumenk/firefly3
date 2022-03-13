@@ -104,6 +104,6 @@ AWS SSO supports automatic user provisioning via the System for Cross-Identity M
 + Activate CloudWatch agent: 
 ```
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json
+```
 + Create metric filter for log groups and custom alarms
 + Send alarms to SNS topic
-```
