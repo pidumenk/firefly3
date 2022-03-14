@@ -60,6 +60,9 @@ exit;
  
 **Then, I need to make changes at /var/www/html/firefly-iii/.env**
 ```
+APP_DEBUG=true        # It'll be used for CloudWatch logs
+APP_LOG_LEVEL=debug   # It'll be used for CloudWatch logs
+
 DB_CONNECTION=mysql
 DB_HOST={{RDS_ENDPOINT}}
 DB_PORT=3306
@@ -100,10 +103,10 @@ AWS SSO supports automatic user provisioning via the System for Cross-Identity M
 
 + Create IAM role with **CloudWatchAgentPolicy**
 + Download CloudWatch Agent on EC2 instance and install it - [deb package](https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb)
-+ Define your configuration file for CloudWatch and place it on the path: */opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json
++ Define your configuration file for CloudWatch and place it on the path: */opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json*
 + Activate CloudWatch agent: 
 ```
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json
+```
 + Create metric filter for log groups and custom alarms
 + Send alarms to SNS topic
-```
