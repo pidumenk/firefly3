@@ -112,7 +112,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 + Send alarms to SNS topic.
 
 **Use case**
-For instance, I created ALARM for any user-delete occurs in administration panel of Firefly. If someone to delete user, I'll get a message on my email. 
+For instance, I created ALARM for any user-delete occurs in administration panel of Firefly. If someone deletes user, I'll get a message on my email. 
 
 ![Image alt](https://github.com/pidumenk/firefly3/raw/master/CloudWatch.jpg)
 
