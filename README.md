@@ -101,12 +101,18 @@ AWS SSO supports automatic user provisioning via the System for Cross-Identity M
 
 # CloudWatch Monitoring 
 
-+ Create IAM role with **CloudWatchAgentPolicy**
-+ Download CloudWatch Agent on EC2 instance and install it - [deb package](https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb)
++ Create IAM role with **CloudWatchAgentPolicy**;
++ Download CloudWatch Agent on EC2 instance and install it - [deb package](https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb);
 + Define your configuration file for CloudWatch and place it on the path: */opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json*
 + Activate CloudWatch agent: 
 ```
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.d/config.json
 ```
-+ Create metric filter for log groups and custom alarms
-+ Send alarms to SNS topic
++ Create metric filter for log groups, which have been defined at config.json, and make custom alarms;
++ Send alarms to SNS topic.
+
+**Use case**
+For instance, I created ALARM for any user-delete occurs in administration panel of Firefly. If someone to delete user, I'll get a message on my email. 
+
+![Image alt](https://github.com/pidumenk/firefly3/raw/master/CloudWatch.jpg)
+
